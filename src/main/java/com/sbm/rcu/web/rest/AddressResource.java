@@ -20,8 +20,8 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.Address}.
  */
-@RestController
-@RequestMapping("/api/addresses")
+//@RestController
+//@RequestMapping("/api/addresses")
 public class AddressResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(AddressResource.class);

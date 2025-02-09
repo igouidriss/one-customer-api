@@ -20,8 +20,8 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.Email}.
  */
-@RestController
-@RequestMapping("/api/emails")
+//@RestController
+//@RequestMapping("/api/emails")
 public class EmailResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(EmailResource.class);

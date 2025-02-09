@@ -20,8 +20,8 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.Cancelled}.
  */
-@RestController
-@RequestMapping("/api/cancelleds")
+//@RestController
+//@RequestMapping("/api/cancelleds")
 public class CancelledResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(CancelledResource.class);

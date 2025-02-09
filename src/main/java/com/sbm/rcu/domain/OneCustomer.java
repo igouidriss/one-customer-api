@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 /**
  * Représente la racine du document : domaine = 'one_customer'.
  */
-@Document(collection = "one_customer")
+@Document(collection = "exposed_api_customer_360")
 @SuppressWarnings("common-java:DuplicatedBlocks")
 public class OneCustomer implements Serializable {
 

@@ -20,8 +20,8 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.SourceReference}.
  */
-@RestController
-@RequestMapping("/api/source-references")
+//@RestController
+//@RequestMapping("/api/source-references")
 public class SourceReferenceResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(SourceReferenceResource.class);

@@ -20,8 +20,8 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.Payload}.
  */
-@RestController
-@RequestMapping("/api/payloads")
+//@RestController
+//@RequestMapping("/api/payloads")
 public class PayloadResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(PayloadResource.class);

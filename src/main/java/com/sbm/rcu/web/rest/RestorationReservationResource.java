@@ -25,8 +25,8 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.RestorationReservation}.
  */
-@RestController
-@RequestMapping("/api/restoration-reservations")
+//@RestController
+//@RequestMapping("/api/restoration-reservations")
 public class RestorationReservationResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(RestorationReservationResource.class);

@@ -20,8 +20,8 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.Expenses}.
  */
-@RestController
-@RequestMapping("/api/expenses")
+//@RestController
+//@RequestMapping("/api/expenses")
 public class ExpensesResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(ExpensesResource.class);

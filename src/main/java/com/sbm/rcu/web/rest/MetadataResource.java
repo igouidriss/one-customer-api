@@ -20,8 +20,8 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.Metadata}.
  */
-@RestController
-@RequestMapping("/api/metadata")
+//@RestController
+//@RequestMapping("/api/metadata")
 public class MetadataResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(MetadataResource.class);

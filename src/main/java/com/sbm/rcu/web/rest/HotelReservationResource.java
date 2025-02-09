@@ -25,8 +25,8 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.HotelReservation}.
  */
-@RestController
-@RequestMapping("/api/hotel-reservations")
+//@RestController
+//@RequestMapping("/api/hotel-reservations")
 public class HotelReservationResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(HotelReservationResource.class);

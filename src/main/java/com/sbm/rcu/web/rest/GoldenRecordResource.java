@@ -20,8 +20,8 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.GoldenRecord}.
  */
-@RestController
-@RequestMapping("/api/golden-records")
+//@RestController
+//@RequestMapping("/api/golden-records")
 public class GoldenRecordResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(GoldenRecordResource.class);
