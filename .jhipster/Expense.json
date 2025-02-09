@@ -1,0 +1,92 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {
+    "changelogDate": "20250209211000"
+  },
+  "applications": "*",
+  "documentation": "Détails individuels des dépenses (expenses_details).",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "documentation": "ex.: 'Minibar', 'Wine'...",
+      "fieldName": "expenseType",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "Montant partiel, ex.: 24, 174, 45, 43...",
+      "fieldName": "amount",
+      "fieldType": "Long"
+    },
+    {
+      "documentation": "S’il existe (dans la partie resto par exemple), depositAmount\\nou tout autre champ. Ici, on peut en rajouter si besoin.",
+      "fieldName": "depositAmount",
+      "fieldType": "Long"
+    },
+    {
+      "documentation": "ex.: 1276, 1385, etc.",
+      "fieldName": "totalAmount",
+      "fieldType": "Long"
+    },
+    {
+      "documentation": "ex.: 'DINNER'",
+      "fieldName": "shift",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "arrivalDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "leaveDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "guestCount",
+      "fieldType": "Integer"
+    },
+    {
+      "documentation": "ex.: 'MC BAY' / 'COYA'...",
+      "fieldName": "hotelName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hotelId",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "Ou version restaurantName, restaurantId si c’est un expense côté resto...\\nPar simplicité, on les appelle hotelName/hotelId (ou on scinde).",
+      "fieldName": "restaurantName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "restaurantId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientId",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Expense",
+  "relationships": [
+    {
+      "otherEntityName": "metadata",
+      "relationshipName": "metadata",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "expenses",
+      "otherEntityRelationshipName": "expense",
+      "relationshipName": "expenses",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,26 @@
+{
+  "rcuApplicationApp": {
+    "sourceReference": {
+      "home": {
+        "title": "SourceReferences",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Source Reference",
+        "createOrEditLabel": "Créer ou éditer un Source Reference",
+        "notFound": "Aucun Source Reference trouvé"
+      },
+      "created": "Un nouveau Source Reference a été créé avec l'identifiant { param }",
+      "updated": "Le Source Reference avec l'identifiant { param } a été mis à jour",
+      "deleted": "Le Source Reference avec l'identifiant { param } a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Source Reference { id } ?"
+      },
+      "detail": {
+        "title": "Source Reference"
+      },
+      "id": "ID",
+      "source": "Source",
+      "value": "Value",
+      "goldenRecord": "Golden Record"
+    }
+  }
+}

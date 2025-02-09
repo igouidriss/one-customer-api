@@ -1,0 +1,33 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {
+    "changelogDate": "20250209210952"
+  },
+  "applications": "*",
+  "documentation": "Entités correspondantes aux tableaux `emails`, `phones`, `addresses`.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "documentation": "type = 'PRO', 'HOME', etc.",
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "value = 'john.doe@company.com', etc.",
+      "fieldName": "value",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Email",
+  "relationships": [
+    {
+      "otherEntityName": "payload",
+      "otherEntityRelationshipName": "email",
+      "relationshipName": "payload",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

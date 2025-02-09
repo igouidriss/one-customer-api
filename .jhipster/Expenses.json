@@ -1,0 +1,27 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {
+    "changelogDate": "20250209210959"
+  },
+  "applications": "*",
+  "documentation": "Objet regroupant la somme des dépenses (ex.: total_expense) + un tableau de détails.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "totalExpense",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "Expenses",
+  "relationships": [
+    {
+      "otherEntityName": "expense",
+      "otherEntityRelationshipName": "expenses",
+      "relationshipName": "expense",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,30 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {
+    "changelogDate": "20250209210955"
+  },
+  "applications": "*",
+  "documentation": "Représente un objet \"cancelled\" (annulation).",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "documentation": "ex.: 'Client request', 'demerge_request'...",
+      "fieldName": "cancelReason",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: true / false",
+      "fieldName": "isItCancelled",
+      "fieldType": "Boolean"
+    },
+    {
+      "documentation": "ex.: '2025-02-09T18:16:16.898010'",
+      "fieldName": "cancelDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Cancelled",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

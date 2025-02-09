@@ -1,0 +1,39 @@
+{
+  "rcuApplicationApp": {
+    "payload": {
+      "home": {
+        "title": "Payloads",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payload",
+        "createOrEditLabel": "Create or edit a Payload",
+        "notFound": "No Payloads found"
+      },
+      "created": "A new Payload is created with identifier { param }",
+      "updated": "A Payload is updated with identifier { param }",
+      "deleted": "A Payload is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete Payload { id }?"
+      },
+      "detail": {
+        "title": "Payload"
+      },
+      "id": "ID",
+      "lastName": "Last Name",
+      "firstName": "First Name",
+      "birthDate": "Birth Date",
+      "lang": "Lang",
+      "isVip": "Is Vip",
+      "metadata": "Metadata",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "help": {
+        "lastName": "ex.: &#39;IGOULALENE&#39;",
+        "firstName": "ex.: &#39;Robert&#39;",
+        "birthDate": "ex.: &#39;1997-01-01&#39;",
+        "lang": "ex.: &#39;FR&#39;",
+        "isVip": "ex.: false"
+      }
+    }
+  }
+}

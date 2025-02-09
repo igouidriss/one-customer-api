@@ -1,0 +1,65 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {
+    "changelogDate": "20250209210950"
+  },
+  "applications": "*",
+  "documentation": "Entité correspondant à `golden_record`.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "documentation": "ex.: 'mdmId_1'",
+      "fieldName": "aggregateId",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: 'GoldenRecord'",
+      "fieldName": "aggregateType",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: 'client'",
+      "fieldName": "domaine",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: 'mdmId_1'",
+      "fieldName": "mdmId",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: 'mdm'",
+      "fieldName": "source",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: '2025-02-09T20:19:53.618778Z'",
+      "fieldName": "recordTimestamp",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "GoldenRecord",
+  "relationships": [
+    {
+      "otherEntityName": "cancelled",
+      "relationshipName": "cancelled",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "payload",
+      "relationshipName": "payload",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "sourceReference",
+      "otherEntityRelationshipName": "goldenRecord",
+      "relationshipName": "sourceReference",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

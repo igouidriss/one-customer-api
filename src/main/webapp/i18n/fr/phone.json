@@ -1,0 +1,30 @@
+{
+  "rcuApplicationApp": {
+    "phone": {
+      "home": {
+        "title": "Phones",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Phone",
+        "createOrEditLabel": "Créer ou éditer un Phone",
+        "notFound": "Aucun Phone trouvé"
+      },
+      "created": "Un nouveau Phone a été créé avec l'identifiant { param }",
+      "updated": "Le Phone avec l'identifiant { param } a été mis à jour",
+      "deleted": "Le Phone avec l'identifiant { param } a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Phone { id } ?"
+      },
+      "detail": {
+        "title": "Phone"
+      },
+      "id": "ID",
+      "type": "Type",
+      "number": "Number",
+      "payload": "Payload",
+      "help": {
+        "type": "ex.: &#39;PRO&#39;, &#39;HOME&#39;",
+        "number": "ex.: &#39;+33-123-456&#39;"
+      }
+    }
+  }
+}

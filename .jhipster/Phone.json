@@ -1,0 +1,32 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {
+    "changelogDate": "20250209210953"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "documentation": "ex.: 'PRO', 'HOME'",
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: '+33-123-456'",
+      "fieldName": "number",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Phone",
+  "relationships": [
+    {
+      "otherEntityName": "payload",
+      "otherEntityRelationshipName": "phone",
+      "relationshipName": "payload",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

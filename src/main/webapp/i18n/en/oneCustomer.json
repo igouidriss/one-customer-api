@@ -1,0 +1,37 @@
+{
+  "rcuApplicationApp": {
+    "oneCustomer": {
+      "home": {
+        "title": "One Customers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new One Customer",
+        "createOrEditLabel": "Create or edit a One Customer",
+        "notFound": "No One Customers found"
+      },
+      "created": "A new One Customer is created with identifier { param }",
+      "updated": "A One Customer is updated with identifier { param }",
+      "deleted": "A One Customer is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete One Customer { id }?"
+      },
+      "detail": {
+        "title": "One Customer"
+      },
+      "id": "Id",
+      "domaine": "Domaine",
+      "aggregateId": "Aggregate Id",
+      "aggregateType": "Aggregate Type",
+      "timestamp": "Timestamp",
+      "goldenRecord": "Golden Record",
+      "hotelReservations": "Hotel Reservations",
+      "restorationReservations": "Restoration Reservations",
+      "help": {
+        "id": "Clé &#39;_id&#39; du JSON",
+        "domaine": "&#39;one_customer&#39;",
+        "aggregateId": "ex.: &#39;mdmId_1&#39;",
+        "aggregateType": "ex.: &#39;GoldenRecord&#39;",
+        "timestamp": "ex.: &#39;2025-02-09T20:19:53.668906Z&#39;"
+      }
+    }
+  }
+}

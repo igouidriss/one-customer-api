@@ -7,7 +7,20 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "oneCustomerMySuffix": "One Customer",
+        "goldenRecordMySuffix": "Golden Record",
+        "payloadMySuffix": "Payload",
+        "emailMySuffix": "Email",
+        "phoneMySuffix": "Phone",
+        "addressMySuffix": "Address",
+        "cancelledMySuffix": "Cancelled",
+        "sourceReferenceMySuffix": "Source Reference",
+        "hotelReservationMySuffix": "Hotel Reservation",
+        "restorationReservationMySuffix": "Restoration Reservation",
+        "expensesMySuffix": "Expenses",
+        "expenseMySuffix": "Expense",
+        "metadataMySuffix": "Metadata"
       },
       "account": {
         "main": "Compte",

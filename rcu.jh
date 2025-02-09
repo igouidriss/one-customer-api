@@ -1,0 +1,507 @@
+/**
+ * Représente la racine du document : domaine = 'one_customer'.
+ */
+entity OneCustomer {
+    /**
+     * Clé '_id' du JSON
+     */
+    id String,
+
+    /**
+     * 'one_customer'
+     */
+    domaine String,
+
+    /**
+     * ex.: 'mdmId_1'
+     */
+    aggregateId String,
+
+    /**
+     * ex.: 'GoldenRecord'
+     */
+    aggregateType String,
+
+    /**
+     * ex.: '2025-02-09T20:19:53.668906Z'
+     */
+    timestamp Instant
+}
+
+/**
+ * Entité correspondant à `golden_record`.
+ */
+entity GoldenRecord {
+    /**
+     * ex.: 'mdmId_1'
+     */
+    aggregateId String,
+
+    /**
+     * ex.: 'GoldenRecord'
+     */
+    aggregateType String,
+
+    /**
+     * ex.: 'client'
+     */
+    domaine String,
+
+    /**
+     * ex.: 'mdmId_1'
+     */
+    mdmId String,
+
+    /**
+     * ex.: 'mdm'
+     */
+    source String,
+
+    /**
+     * ex.: '2025-02-09T20:19:53.618778Z'
+     */
+    recordTimestamp Instant
+}
+
+/**
+ * Le payload du GoldenRecord, contenant lastName, firstName, etc.
+ */
+entity Payload {
+    /**
+     * ex.: 'IGOULALENE'
+     */
+    lastName String,
+
+    /**
+     * ex.: 'Robert'
+     */
+    firstName String,
+
+    /**
+     * ex.: '1997-01-01'
+     */
+    birthDate LocalDate,
+
+    /**
+     * ex.: 'FR'
+     */
+    lang String,
+
+    /**
+     * ex.: false
+     */
+    isVip Boolean
+}
+
+/**
+ * Entités correspondantes aux tableaux `emails`, `phones`, `addresses`.
+ */
+entity Email {
+    /**
+     * type = 'PRO', 'HOME', etc.
+     */
+    type String,
+
+    /**
+     * value = 'john.doe@company.com', etc.
+     */
+    value String
+}
+
+entity Phone {
+    /**
+     * ex.: 'PRO', 'HOME'
+     */
+    type String,
+
+    /**
+     * ex.: '+33-123-456'
+     */
+    number String
+}
+
+entity Address {
+    type String,
+    zipCode String,
+    city String,
+    country String,
+    line1 String,
+    line2 String,
+    line3 String
+}
+
+/**
+ * Représente un objet "cancelled" (annulation).
+ */
+entity Cancelled {
+    /**
+     * ex.: 'Client request', 'demerge_request'...
+     */
+    cancelReason String,
+
+    /**
+     * ex.: true / false
+     */
+    isItCancelled Boolean,
+
+    /**
+     * ex.: '2025-02-09T18:16:16.898010'
+     */
+    cancelDate Instant
+}
+
+/**
+ * Liste de références (sourceReferences) ex.: {source:'opera', value:'opera_client_1'}.
+ */
+entity SourceReference {
+    source String,
+    value String
+}
+
+/**
+ * Chaque réservation d’hôtel (bloc de la liste `hotel`).
+ */
+entity HotelReservation {
+    /**
+     * ex.: 'opera_client_1_reservation_1'
+     */
+    id String,
+
+    /**
+     * ex.: 'reservation_1'
+     */
+    aggregateId String,
+
+    /**
+     * ex.: 'HotelReservation'
+     */
+    aggregateType String,
+
+    clientId String,
+    domaine String,
+    source String,
+
+    /**
+     * ex.: '2025-02-09T18:24:12.489902Z'
+     */
+    reservationTimestamp Instant,
+
+    /**
+     * ex.: 'projection_hotel_opera_HotelReservation'
+     */
+    projection String,
+
+    /**
+     * ex.: '2025-02-09' => date
+     */
+    date LocalDate,
+
+    /**
+     * ex.: 2195, 1971, etc.
+     */
+    totalAmount Long,
+
+    /**
+     * ex.: '2025-02-11T18:22:27.656143'
+     */
+    arrivalDate Instant,
+
+    /**
+     * ex.: '2025-02-13T18:22:27.656175'
+     */
+    leaveDate Instant,
+
+    /**
+     * ex.: 4, 1, 2...
+     */
+    guestCount Integer,
+
+    /**
+     * ex.: 'MC BAY', 'HERMITAGE'
+     */
+    hotelName String,
+
+    /**
+     * ex.: '94c52788-42fb-4d9b-8bc9-8ca1f91e4c64'
+     */
+    hotelId String
+}
+
+/**
+ * Chaque réservation de restauration (bloc de la liste `restauration`).
+ */
+entity RestorationReservation {
+    id String,
+    aggregateId String,
+    aggregateType String,
+    clientId String,
+    domaine String,
+    source String,
+
+    /**
+     * ex.: '2025-02-09T18:16:25.018944Z'
+     */
+    reservationTimestamp Instant,
+
+    projection String,
+
+    /**
+     * ex.: '2025-02-09'
+     */
+    date LocalDate,
+
+    /**
+     * ex.: 2, 6, 82
+     */
+    depositAmount Long,
+
+    /**
+     * ex.: 144, 298, 193
+     */
+    totalAmount Long,
+
+    /**
+     * ex.: 'DINNER'
+     */
+    shift String,
+
+    /**
+     * ex.: 4
+     */
+    guestCount Integer,
+
+    /**
+     * ex.: '2025-02-10T18:16:09.867311'
+     */
+    arrivalDate Instant,
+
+    restaurantName String,
+    restaurantId String
+}
+
+/**
+ * Objet regroupant la somme des dépenses (ex.: total_expense) + un tableau de détails.
+ */
+entity Expenses {
+    totalExpense Long
+}
+
+/**
+ * Détails individuels des dépenses (expenses_details).
+ */
+entity Expense {
+    /**
+     * ex.: 'Minibar', 'Wine'...
+     */
+    expenseType String,
+
+    /**
+     * Montant partiel, ex.: 24, 174, 45, 43...
+     */
+    amount Long,
+
+    /**
+     * S’il existe (dans la partie resto par exemple), depositAmount
+     * ou tout autre champ. Ici, on peut en rajouter si besoin.
+     */
+    depositAmount Long,
+
+    /**
+     * ex.: 1276, 1385, etc.
+     */
+    totalAmount Long,
+
+    /**
+     * ex.: 'DINNER'
+     */
+    shift String,
+
+    date LocalDate,
+    arrivalDate Instant,
+    leaveDate Instant,
+    guestCount Integer,
+
+    /**
+     * ex.: 'MC BAY' / 'COYA'...
+     */
+    hotelName String,
+    hotelId String,
+
+    /**
+     * Ou version restaurantName, restaurantId si c’est un expense côté resto...
+     * Par simplicité, on les appelle hotelName/hotelId (ou on scinde).
+     */
+    restaurantName String,
+    restaurantId String,
+
+    clientId String
+}
+
+/**
+ * Métadonnées retrouvées dans info.metadata, payload.metadata, expenses_details[].metadata, etc.
+ */
+entity Metadata {
+    /**
+     * ex.: '115fe25e-e5a1-4267-990f-db342fc52fc2'
+     */
+    idEvent String,
+
+    /**
+     * ex.: '2025-02-09T18:16:16.898010'
+     */
+    metaTimestamp Instant
+}
+
+// ------------------------------------------------------------------------
+//                         RELATIONSHIPS
+// ------------------------------------------------------------------------
+
+/**
+ * Relation OneToOne entre OneCustomer et GoldenRecord (1 seul GoldenRecord).
+ */
+relationship OneToOne {
+    OneCustomer{goldenRecord} to GoldenRecord
+}
+
+/**
+ * GoldenRecord -> Cancelled (facultatif). Ici c’est un 1-1 dans le JSON.
+ */
+relationship OneToOne {
+    GoldenRecord{cancelled} to Cancelled
+}
+
+/**
+ * GoldenRecord -> Payload en 1-1.
+ */
+relationship OneToOne {
+    GoldenRecord{payload} to Payload
+}
+
+/**
+ * GoldenRecord -> SourceReference en 1-n (sourceReferences array).
+ */
+relationship OneToMany {
+    GoldenRecord to SourceReference
+}
+
+/**
+ * Payload -> Email en 1-n (emails array).
+ */
+relationship OneToMany {
+    Payload to Email
+}
+
+/**
+ * Payload -> Phone en 1-n (phones array).
+ */
+relationship OneToMany {
+    Payload to Phone
+}
+
+/**
+ * Payload -> Address en 1-n (addresses array).
+ */
+relationship OneToMany {
+    Payload to Address
+}
+
+/**
+ * Payload -> Metadata en 1-1 (payload.metadata).
+ */
+relationship OneToOne {
+    Payload{metadata} to Metadata
+}
+
+/**
+ * OneCustomer -> HotelReservation (bloc hotel[])
+ */
+relationship OneToMany {
+    OneCustomer{hotelReservations} to HotelReservation{oneCustomer}
+}
+
+/**
+ * OneCustomer -> RestorationReservation (bloc restauration[])
+ */
+relationship OneToMany {
+    OneCustomer{restorationReservations} to RestorationReservation{oneCustomer}
+}
+
+/**
+ * HotelReservation -> Cancelled en 1-1.
+ */
+relationship OneToOne {
+    HotelReservation{cancelled} to Cancelled
+}
+
+/**
+ * HotelReservation -> Expenses en 1-1.
+ * (Dans l’exemple, toutes n’ont pas un bloc expenses, mais certaines oui.)
+ */
+relationship OneToOne {
+    HotelReservation{expenses} to Expenses
+}
+
+/**
+ * HotelReservation -> Metadata (info.metadata)
+ * On peut le modéliser en 1-1 (ou 1-n si besoin).
+ */
+relationship OneToOne {
+    HotelReservation{metadata} to Metadata
+}
+
+/**
+ * RestorationReservation -> Cancelled en 1-1.
+ */
+relationship OneToOne {
+    RestorationReservation{cancelled} to Cancelled
+}
+
+/**
+ * RestorationReservation -> Expenses en 1-1 (pour le bloc expenses).
+ */
+relationship OneToOne {
+    RestorationReservation{expenses} to Expenses
+}
+
+/**
+ * RestorationReservation -> Metadata (info.metadata).
+ */
+relationship OneToOne {
+    RestorationReservation{metadata} to Metadata
+}
+
+/**
+ * Expenses -> Expense en 1-n (expenses_details array).
+ */
+relationship OneToMany {
+    Expenses to Expense
+}
+
+/**
+ * Expense -> Metadata (chacun a un bloc metadata).
+ */
+relationship OneToOne {
+    Expense{metadata} to Metadata
+}
+
+// ------------------------------------------------------------------------
+//                         OPTIONS (Pagination, DTO, etc.)
+// ------------------------------------------------------------------------
+
+/**
+ * Quelques options possibles de JHipster pour générer du code.
+ */
+// On peut paginer les réservations
+paginate HotelReservation, RestorationReservation with infinite-scroll
+
+// Paginer l'entité OneCustomer
+paginate OneCustomer with pagination
+
+// Générer des DTO via mapstruct
+dto * with mapstruct
+
+// Services
+service all with serviceImpl except Expense, Metadata, Email, Phone, Address
+
+// Suffix Angular
+angularSuffix * with mySuffix
