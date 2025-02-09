@@ -1,1 +1,7 @@
+ ____  ____  __  __
+ / ___|| __ )|  \/  |
+ \___ \|  _ \| |\/| |
+  ___) | |_) | |  | |
+ |____/|____/|_|  |_|
+
 :: OneCustomer SBM API :: Startup profile(s) ${spring.profiles.active} ::

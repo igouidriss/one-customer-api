@@ -52,7 +52,7 @@ public class GoldenRecordAsserts {
             .satisfies(a -> assertThat(a.getDomaine()).as("check domaine").isEqualTo(expected.getDomaine()))
             .satisfies(a -> assertThat(a.getMdmId()).as("check mdmId").isEqualTo(expected.getMdmId()))
             .satisfies(a -> assertThat(a.getSource()).as("check source").isEqualTo(expected.getSource()))
-            .satisfies(a -> assertThat(a.getRecordTimestamp()).as("check recordTimestamp").isEqualTo(expected.getRecordTimestamp()));
+            .satisfies(a -> assertThat(a.getTimestamp()).as("check recordTimestamp").isEqualTo(expected.getTimestamp()));
     }
 
     /**

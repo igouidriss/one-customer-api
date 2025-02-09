@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
 
 /**
  * Entité correspondant à `golden_record`.
@@ -55,8 +56,8 @@ public class GoldenRecord implements Serializable {
     /**
      * ex.: '2025-02-09T20:19:53.618778Z'
      */
-    @Field("record_timestamp")
-    private Instant recordTimestamp;
+    @Field(targetType = FieldType.DATE_TIME)
+    private Instant timestamp;
 
     @DBRef
     @Field("cancelled")
@@ -151,17 +152,17 @@ public class GoldenRecord implements Serializable {
         this.source = source;
     }
 
-    public Instant getRecordTimestamp() {
-        return this.recordTimestamp;
+    public Instant getTimestamp() {
+        return this.timestamp;
     }
 
     public GoldenRecord recordTimestamp(Instant recordTimestamp) {
-        this.setRecordTimestamp(recordTimestamp);
+        this.setTimestamp(recordTimestamp);
         return this;
     }
 
-    public void setRecordTimestamp(Instant recordTimestamp) {
-        this.recordTimestamp = recordTimestamp;
+    public void setTimestamp(Instant timestamp) {
+        this.timestamp = timestamp;
     }
 
     public Cancelled getCancelled() {
@@ -244,13 +245,13 @@ public class GoldenRecord implements Serializable {
     @Override
     public String toString() {
         return "GoldenRecord{" +
-            "id=" + getId() +
-            ", aggregateId='" + getAggregateId() + "'" +
-            ", aggregateType='" + getAggregateType() + "'" +
-            ", domaine='" + getDomaine() + "'" +
-            ", mdmId='" + getMdmId() + "'" +
-            ", source='" + getSource() + "'" +
-            ", recordTimestamp='" + getRecordTimestamp() + "'" +
-            "}";
+               "id=" + getId() +
+               ", aggregateId='" + getAggregateId() + "'" +
+               ", aggregateType='" + getAggregateType() + "'" +
+               ", domaine='" + getDomaine() + "'" +
+               ", mdmId='" + getMdmId() + "'" +
+               ", source='" + getSource() + "'" +
+               ", recordTimestamp='" + getTimestamp() + "'" +
+               "}";
     }
 }

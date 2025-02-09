@@ -52,9 +52,7 @@ public class HotelReservationAsserts {
             .satisfies(a -> assertThat(a.getClientId()).as("check clientId").isEqualTo(expected.getClientId()))
             .satisfies(a -> assertThat(a.getDomaine()).as("check domaine").isEqualTo(expected.getDomaine()))
             .satisfies(a -> assertThat(a.getSource()).as("check source").isEqualTo(expected.getSource()))
-            .satisfies(a ->
-                assertThat(a.getReservationTimestamp()).as("check reservationTimestamp").isEqualTo(expected.getReservationTimestamp())
-            )
+            .satisfies(a -> assertThat(a.getTimestamp()).as("check reservationTimestamp").isEqualTo(expected.getTimestamp()))
             .satisfies(a -> assertThat(a.getProjection()).as("check projection").isEqualTo(expected.getProjection()))
             .satisfies(a -> assertThat(a.getDate()).as("check date").isEqualTo(expected.getDate()))
             .satisfies(a -> assertThat(a.getTotalAmount()).as("check totalAmount").isEqualTo(expected.getTotalAmount()))

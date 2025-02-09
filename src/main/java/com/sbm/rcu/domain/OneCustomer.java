@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
 
 /**
  * Représente la racine du document : domaine = 'one_customer'.
@@ -34,32 +35,32 @@ public class OneCustomer implements Serializable {
     /**
      * ex.: 'mdmId_1'
      */
-    @Field("aggregate_id")
+    @Field("aggregateId")
     private String aggregateId;
 
     /**
      * ex.: 'GoldenRecord'
      */
-    @Field("aggregate_type")
+    @Field("aggregateType")
     private String aggregateType;
 
     /**
      * ex.: '2025-02-09T20:19:53.668906Z'
      */
-    @Field("timestamp")
+    @Field(targetType = FieldType.DATE_TIME)
     private Instant timestamp;
 
     @DBRef
-    @Field("goldenRecord")
+    @Field("golden_record")
     private GoldenRecord goldenRecord;
 
     @DBRef
-    @Field("hotelReservations")
+    @Field("hotel")
     @JsonIgnoreProperties(value = { "cancelled", "expenses", "metadata", "oneCustomer" }, allowSetters = true)
     private Set<HotelReservation> hotelReservations = new HashSet<>();
 
     @DBRef
-    @Field("restorationReservations")
+    @Field("restoration")
     @JsonIgnoreProperties(value = { "cancelled", "expenses", "metadata", "oneCustomer" }, allowSetters = true)
     private Set<RestorationReservation> restorationReservations = new HashSet<>();
 

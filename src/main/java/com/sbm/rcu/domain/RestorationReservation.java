@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
 
 /**
  * Chaque réservation de restauration (bloc de la liste `restauration`).
@@ -39,8 +40,8 @@ public class RestorationReservation implements Serializable {
     /**
      * ex.: '2025-02-09T18:16:25.018944Z'
      */
-    @Field("reservation_timestamp")
-    private Instant reservationTimestamp;
+    @Field(targetType = FieldType.DATE_TIME)
+    private Instant timestamp;
 
     @Field("projection")
     private String projection;
@@ -184,17 +185,17 @@ public class RestorationReservation implements Serializable {
         this.source = source;
     }
 
-    public Instant getReservationTimestamp() {
-        return this.reservationTimestamp;
+    public Instant getTimestamp() {
+        return this.timestamp;
     }
 
     public RestorationReservation reservationTimestamp(Instant reservationTimestamp) {
-        this.setReservationTimestamp(reservationTimestamp);
+        this.setTimestamp(reservationTimestamp);
         return this;
     }
 
-    public void setReservationTimestamp(Instant reservationTimestamp) {
-        this.reservationTimestamp = reservationTimestamp;
+    public void setTimestamp(Instant timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getProjection() {
@@ -389,22 +390,22 @@ public class RestorationReservation implements Serializable {
     @Override
     public String toString() {
         return "RestorationReservation{" +
-            "id=" + getId() +
-            ", aggregateId='" + getAggregateId() + "'" +
-            ", aggregateType='" + getAggregateType() + "'" +
-            ", clientId='" + getClientId() + "'" +
-            ", domaine='" + getDomaine() + "'" +
-            ", source='" + getSource() + "'" +
-            ", reservationTimestamp='" + getReservationTimestamp() + "'" +
-            ", projection='" + getProjection() + "'" +
-            ", date='" + getDate() + "'" +
-            ", depositAmount=" + getDepositAmount() +
-            ", totalAmount=" + getTotalAmount() +
-            ", shift='" + getShift() + "'" +
-            ", guestCount=" + getGuestCount() +
-            ", arrivalDate='" + getArrivalDate() + "'" +
-            ", restaurantName='" + getRestaurantName() + "'" +
-            ", restaurantId='" + getRestaurantId() + "'" +
-            "}";
+               "id=" + getId() +
+               ", aggregateId='" + getAggregateId() + "'" +
+               ", aggregateType='" + getAggregateType() + "'" +
+               ", clientId='" + getClientId() + "'" +
+               ", domaine='" + getDomaine() + "'" +
+               ", source='" + getSource() + "'" +
+               ", reservationTimestamp='" + getTimestamp() + "'" +
+               ", projection='" + getProjection() + "'" +
+               ", date='" + getDate() + "'" +
+               ", depositAmount=" + getDepositAmount() +
+               ", totalAmount=" + getTotalAmount() +
+               ", shift='" + getShift() + "'" +
+               ", guestCount=" + getGuestCount() +
+               ", arrivalDate='" + getArrivalDate() + "'" +
+               ", restaurantName='" + getRestaurantName() + "'" +
+               ", restaurantId='" + getRestaurantId() + "'" +
+               "}";
     }
 }

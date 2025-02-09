@@ -8,11 +8,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
 
 /**
  * Chaque réservation d’hôtel (bloc de la liste `hotel`).
  */
-@Document(collection = "hotel_reservation")
+@Document(collection = "hotel")
 @SuppressWarnings("common-java:DuplicatedBlocks")
 public class HotelReservation implements Serializable {
 
@@ -48,8 +49,8 @@ public class HotelReservation implements Serializable {
     /**
      * ex.: '2025-02-09T18:24:12.489902Z'
      */
-    @Field("reservation_timestamp")
-    private Instant reservationTimestamp;
+    @Field(targetType = FieldType.DATE_TIME)
+    private Instant timestamp;
 
     /**
      * ex.: 'projection_hotel_opera_HotelReservation'
@@ -196,17 +197,17 @@ public class HotelReservation implements Serializable {
         this.source = source;
     }
 
-    public Instant getReservationTimestamp() {
-        return this.reservationTimestamp;
+    public Instant getTimestamp() {
+        return this.timestamp;
     }
 
     public HotelReservation reservationTimestamp(Instant reservationTimestamp) {
-        this.setReservationTimestamp(reservationTimestamp);
+        this.setTimestamp(reservationTimestamp);
         return this;
     }
 
-    public void setReservationTimestamp(Instant reservationTimestamp) {
-        this.reservationTimestamp = reservationTimestamp;
+    public void setTimestamp(Instant timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getProjection() {
@@ -388,21 +389,21 @@ public class HotelReservation implements Serializable {
     @Override
     public String toString() {
         return "HotelReservation{" +
-            "id=" + getId() +
-            ", aggregateId='" + getAggregateId() + "'" +
-            ", aggregateType='" + getAggregateType() + "'" +
-            ", clientId='" + getClientId() + "'" +
-            ", domaine='" + getDomaine() + "'" +
-            ", source='" + getSource() + "'" +
-            ", reservationTimestamp='" + getReservationTimestamp() + "'" +
-            ", projection='" + getProjection() + "'" +
-            ", date='" + getDate() + "'" +
-            ", totalAmount=" + getTotalAmount() +
-            ", arrivalDate='" + getArrivalDate() + "'" +
-            ", leaveDate='" + getLeaveDate() + "'" +
-            ", guestCount=" + getGuestCount() +
-            ", hotelName='" + getHotelName() + "'" +
-            ", hotelId='" + getHotelId() + "'" +
-            "}";
+               "id=" + getId() +
+               ", aggregateId='" + getAggregateId() + "'" +
+               ", aggregateType='" + getAggregateType() + "'" +
+               ", clientId='" + getClientId() + "'" +
+               ", domaine='" + getDomaine() + "'" +
+               ", source='" + getSource() + "'" +
+               ", reservationTimestamp='" + getTimestamp() + "'" +
+               ", projection='" + getProjection() + "'" +
+               ", date='" + getDate() + "'" +
+               ", totalAmount=" + getTotalAmount() +
+               ", arrivalDate='" + getArrivalDate() + "'" +
+               ", leaveDate='" + getLeaveDate() + "'" +
+               ", guestCount=" + getGuestCount() +
+               ", hotelName='" + getHotelName() + "'" +
+               ", hotelId='" + getHotelId() + "'" +
+               "}";
     }
 }
