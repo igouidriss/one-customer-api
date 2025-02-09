@@ -1,0 +1,31 @@
+{
+  "rcuApplicationApp": {
+    "cancelled": {
+      "home": {
+        "title": "Cancelleds",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Cancelled",
+        "createOrEditLabel": "Créer ou éditer un Cancelled",
+        "notFound": "Aucun Cancelled trouvé"
+      },
+      "created": "Un nouveau Cancelled a été créé avec l'identifiant { param }",
+      "updated": "Le Cancelled avec l'identifiant { param } a été mis à jour",
+      "deleted": "Le Cancelled avec l'identifiant { param } a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Cancelled { id } ?"
+      },
+      "detail": {
+        "title": "Cancelled"
+      },
+      "id": "ID",
+      "cancelReason": "Cancel Reason",
+      "isItCancelled": "Is It Cancelled",
+      "cancelDate": "Cancel Date",
+      "help": {
+        "cancelReason": "ex.: &#39;Client request&#39;, &#39;demerge_request&#39;...",
+        "isItCancelled": "ex.: true / false",
+        "cancelDate": "ex.: &#39;2025-02-09T18:16:16.898010&#39;"
+      }
+    }
+  }
+}

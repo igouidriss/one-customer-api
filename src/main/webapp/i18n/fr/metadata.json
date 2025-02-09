@@ -1,0 +1,29 @@
+{
+  "rcuApplicationApp": {
+    "metadata": {
+      "home": {
+        "title": "Metadata",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Metadata",
+        "createOrEditLabel": "Créer ou éditer un Metadata",
+        "notFound": "Aucun Metadata trouvé"
+      },
+      "created": "Un nouveau Metadata a été créé avec l'identifiant { param }",
+      "updated": "Le Metadata avec l'identifiant { param } a été mis à jour",
+      "deleted": "Le Metadata avec l'identifiant { param } a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Metadata { id } ?"
+      },
+      "detail": {
+        "title": "Metadata"
+      },
+      "id": "ID",
+      "idEvent": "Id Event",
+      "metaTimestamp": "Meta Timestamp",
+      "help": {
+        "idEvent": "ex.: &#39;115fe25e-e5a1-4267-990f-db342fc52fc2&#39;",
+        "metaTimestamp": "ex.: &#39;2025-02-09T18:16:16.898010&#39;"
+      }
+    }
+  }
+}

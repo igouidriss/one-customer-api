@@ -1,0 +1,62 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {
+    "changelogDate": "20250209210949"
+  },
+  "applications": "*",
+  "documentation": "Représente la racine du document : domaine = 'one_customer'.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "documentation": "Clé '_id' du JSON",
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "'one_customer'",
+      "fieldName": "domaine",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: 'mdmId_1'",
+      "fieldName": "aggregateId",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: 'GoldenRecord'",
+      "fieldName": "aggregateType",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: '2025-02-09T20:19:53.668906Z'",
+      "fieldName": "timestamp",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "OneCustomer",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "goldenRecord",
+      "relationshipName": "goldenRecord",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "hotelReservation",
+      "otherEntityRelationshipName": "oneCustomer",
+      "relationshipName": "hotelReservations",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "restorationReservation",
+      "otherEntityRelationshipName": "oneCustomer",
+      "relationshipName": "restorationReservations",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,40 @@
+{
+  "rcuApplicationApp": {
+    "goldenRecord": {
+      "home": {
+        "title": "Golden Records",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Golden Record",
+        "createOrEditLabel": "Create or edit a Golden Record",
+        "notFound": "No Golden Records found"
+      },
+      "created": "A new Golden Record is created with identifier { param }",
+      "updated": "A Golden Record is updated with identifier { param }",
+      "deleted": "A Golden Record is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete Golden Record { id }?"
+      },
+      "detail": {
+        "title": "Golden Record"
+      },
+      "id": "ID",
+      "aggregateId": "Aggregate Id",
+      "aggregateType": "Aggregate Type",
+      "domaine": "Domaine",
+      "mdmId": "Mdm Id",
+      "source": "Source",
+      "recordTimestamp": "Record Timestamp",
+      "cancelled": "Cancelled",
+      "payload": "Payload",
+      "sourceReference": "Source Reference",
+      "help": {
+        "aggregateId": "ex.: &#39;mdmId_1&#39;",
+        "aggregateType": "ex.: &#39;GoldenRecord&#39;",
+        "domaine": "ex.: &#39;client&#39;",
+        "mdmId": "ex.: &#39;mdmId_1&#39;",
+        "source": "ex.: &#39;mdm&#39;",
+        "recordTimestamp": "ex.: &#39;2025-02-09T20:19:53.618778Z&#39;"
+      }
+    }
+  }
+}

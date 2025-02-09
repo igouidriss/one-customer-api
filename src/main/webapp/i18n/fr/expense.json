@@ -1,0 +1,48 @@
+{
+  "rcuApplicationApp": {
+    "expense": {
+      "home": {
+        "title": "Expenses",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Expense",
+        "createOrEditLabel": "Créer ou éditer un Expense",
+        "notFound": "Aucun Expense trouvé"
+      },
+      "created": "Un nouveau Expense a été créé avec l'identifiant { param }",
+      "updated": "Le Expense avec l'identifiant { param } a été mis à jour",
+      "deleted": "Le Expense avec l'identifiant { param } a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Expense { id } ?"
+      },
+      "detail": {
+        "title": "Expense"
+      },
+      "id": "ID",
+      "expenseType": "Expense Type",
+      "amount": "Amount",
+      "depositAmount": "Deposit Amount",
+      "totalAmount": "Total Amount",
+      "shift": "Shift",
+      "date": "Date",
+      "arrivalDate": "Arrival Date",
+      "leaveDate": "Leave Date",
+      "guestCount": "Guest Count",
+      "hotelName": "Hotel Name",
+      "hotelId": "Hotel Id",
+      "restaurantName": "Restaurant Name",
+      "restaurantId": "Restaurant Id",
+      "clientId": "Client Id",
+      "metadata": "Metadata",
+      "expenses": "Expenses",
+      "help": {
+        "expenseType": "ex.: &#39;Minibar&#39;, &#39;Wine&#39;...",
+        "amount": "Montant partiel, ex.: 24, 174, 45, 43...",
+        "depositAmount": "S’il existe (dans la partie resto par exemple), depositAmount\nou tout autre champ. Ici, on peut en rajouter si besoin.",
+        "totalAmount": "ex.: 1276, 1385, etc.",
+        "shift": "ex.: &#39;DINNER&#39;",
+        "hotelName": "ex.: &#39;MC BAY&#39; / &#39;COYA&#39;...",
+        "restaurantName": "Ou version restaurantName, restaurantId si c’est un expense côté resto...\nPar simplicité, on les appelle hotelName/hotelId (ou on scinde)."
+      }
+    }
+  }
+}

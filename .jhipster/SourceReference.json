@@ -1,0 +1,31 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {
+    "changelogDate": "20250209210956"
+  },
+  "applications": "*",
+  "documentation": "Liste de références (sourceReferences) ex.: {source:'opera', value:'opera_client_1'}.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "source",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "String"
+    }
+  ],
+  "name": "SourceReference",
+  "relationships": [
+    {
+      "otherEntityName": "goldenRecord",
+      "otherEntityRelationshipName": "sourceReference",
+      "relationshipName": "goldenRecord",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,68 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {
+    "changelogDate": "20250209210951"
+  },
+  "applications": "*",
+  "documentation": "Le payload du GoldenRecord, contenant lastName, firstName, etc.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "documentation": "ex.: 'IGOULALENE'",
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: 'Robert'",
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: '1997-01-01'",
+      "fieldName": "birthDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "documentation": "ex.: 'FR'",
+      "fieldName": "lang",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: false",
+      "fieldName": "isVip",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "Payload",
+  "relationships": [
+    {
+      "otherEntityName": "metadata",
+      "relationshipName": "metadata",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "email",
+      "otherEntityRelationshipName": "payload",
+      "relationshipName": "email",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "phone",
+      "otherEntityRelationshipName": "payload",
+      "relationshipName": "phone",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "payload",
+      "relationshipName": "address",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

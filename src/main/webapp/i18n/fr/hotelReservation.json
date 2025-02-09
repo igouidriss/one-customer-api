@@ -1,0 +1,55 @@
+{
+  "rcuApplicationApp": {
+    "hotelReservation": {
+      "home": {
+        "title": "HotelReservations",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Hotel Reservation",
+        "createOrEditLabel": "Créer ou éditer un Hotel Reservation",
+        "notFound": "Aucun Hotel Reservation trouvé"
+      },
+      "created": "Un nouveau Hotel Reservation a été créé avec l'identifiant { param }",
+      "updated": "Le Hotel Reservation avec l'identifiant { param } a été mis à jour",
+      "deleted": "Le Hotel Reservation avec l'identifiant { param } a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Hotel Reservation { id } ?"
+      },
+      "detail": {
+        "title": "Hotel Reservation"
+      },
+      "id": "Id",
+      "aggregateId": "Aggregate Id",
+      "aggregateType": "Aggregate Type",
+      "clientId": "Client Id",
+      "domaine": "Domaine",
+      "source": "Source",
+      "reservationTimestamp": "Reservation Timestamp",
+      "projection": "Projection",
+      "date": "Date",
+      "totalAmount": "Total Amount",
+      "arrivalDate": "Arrival Date",
+      "leaveDate": "Leave Date",
+      "guestCount": "Guest Count",
+      "hotelName": "Hotel Name",
+      "hotelId": "Hotel Id",
+      "cancelled": "Cancelled",
+      "expenses": "Expenses",
+      "metadata": "Metadata",
+      "oneCustomer": "One Customer",
+      "help": {
+        "id": "ex.: &#39;opera_client_1_reservation_1&#39;",
+        "aggregateId": "ex.: &#39;reservation_1&#39;",
+        "aggregateType": "ex.: &#39;HotelReservation&#39;",
+        "reservationTimestamp": "ex.: &#39;2025-02-09T18:24:12.489902Z&#39;",
+        "projection": "ex.: &#39;projection_hotel_opera_HotelReservation&#39;",
+        "date": "ex.: &#39;2025-02-09&#39; =&gt; date",
+        "totalAmount": "ex.: 2195, 1971, etc.",
+        "arrivalDate": "ex.: &#39;2025-02-11T18:22:27.656143&#39;",
+        "leaveDate": "ex.: &#39;2025-02-13T18:22:27.656175&#39;",
+        "guestCount": "ex.: 4, 1, 2...",
+        "hotelName": "ex.: &#39;MC BAY&#39;, &#39;HERMITAGE&#39;",
+        "hotelId": "ex.: &#39;94c52788-42fb-4d9b-8bc9-8ca1f91e4c64&#39;"
+      }
+    }
+  }
+}

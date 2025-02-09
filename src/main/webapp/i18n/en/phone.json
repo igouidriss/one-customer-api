@@ -1,0 +1,30 @@
+{
+  "rcuApplicationApp": {
+    "phone": {
+      "home": {
+        "title": "Phones",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Phone",
+        "createOrEditLabel": "Create or edit a Phone",
+        "notFound": "No Phones found"
+      },
+      "created": "A new Phone is created with identifier { param }",
+      "updated": "A Phone is updated with identifier { param }",
+      "deleted": "A Phone is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete Phone { id }?"
+      },
+      "detail": {
+        "title": "Phone"
+      },
+      "id": "ID",
+      "type": "Type",
+      "number": "Number",
+      "payload": "Payload",
+      "help": {
+        "type": "ex.: &#39;PRO&#39;, &#39;HOME&#39;",
+        "number": "ex.: &#39;+33-123-456&#39;"
+      }
+    }
+  }
+}

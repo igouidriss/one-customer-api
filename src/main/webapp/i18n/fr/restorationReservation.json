@@ -1,0 +1,51 @@
+{
+  "rcuApplicationApp": {
+    "restorationReservation": {
+      "home": {
+        "title": "RestorationReservations",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Restoration Reservation",
+        "createOrEditLabel": "Créer ou éditer un Restoration Reservation",
+        "notFound": "Aucun Restoration Reservation trouvé"
+      },
+      "created": "Un nouveau Restoration Reservation a été créé avec l'identifiant { param }",
+      "updated": "Le Restoration Reservation avec l'identifiant { param } a été mis à jour",
+      "deleted": "Le Restoration Reservation avec l'identifiant { param } a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Restoration Reservation { id } ?"
+      },
+      "detail": {
+        "title": "Restoration Reservation"
+      },
+      "id": "Id",
+      "aggregateId": "Aggregate Id",
+      "aggregateType": "Aggregate Type",
+      "clientId": "Client Id",
+      "domaine": "Domaine",
+      "source": "Source",
+      "reservationTimestamp": "Reservation Timestamp",
+      "projection": "Projection",
+      "date": "Date",
+      "depositAmount": "Deposit Amount",
+      "totalAmount": "Total Amount",
+      "shift": "Shift",
+      "guestCount": "Guest Count",
+      "arrivalDate": "Arrival Date",
+      "restaurantName": "Restaurant Name",
+      "restaurantId": "Restaurant Id",
+      "cancelled": "Cancelled",
+      "expenses": "Expenses",
+      "metadata": "Metadata",
+      "oneCustomer": "One Customer",
+      "help": {
+        "reservationTimestamp": "ex.: &#39;2025-02-09T18:16:25.018944Z&#39;",
+        "date": "ex.: &#39;2025-02-09&#39;",
+        "depositAmount": "ex.: 2, 6, 82",
+        "totalAmount": "ex.: 144, 298, 193",
+        "shift": "ex.: &#39;DINNER&#39;",
+        "guestCount": "ex.: 4",
+        "arrivalDate": "ex.: &#39;2025-02-10T18:16:09.867311&#39;"
+      }
+    }
+  }
+}

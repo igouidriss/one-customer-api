@@ -1,0 +1,25 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {
+    "changelogDate": "20250209211001"
+  },
+  "applications": "*",
+  "documentation": "Métadonnées retrouvées dans info.metadata, payload.metadata, expenses_details[].metadata, etc.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "documentation": "ex.: '115fe25e-e5a1-4267-990f-db342fc52fc2'",
+      "fieldName": "idEvent",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: '2025-02-09T18:16:16.898010'",
+      "fieldName": "metaTimestamp",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Metadata",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

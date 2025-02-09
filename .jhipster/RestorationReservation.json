@@ -1,0 +1,113 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {
+    "changelogDate": "20250209210958"
+  },
+  "applications": "*",
+  "documentation": "Chaque réservation de restauration (bloc de la liste `restauration`).",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "aggregateId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "aggregateType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "domaine",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "source",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: '2025-02-09T18:16:25.018944Z'",
+      "fieldName": "reservationTimestamp",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "projection",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: '2025-02-09'",
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "documentation": "ex.: 2, 6, 82",
+      "fieldName": "depositAmount",
+      "fieldType": "Long"
+    },
+    {
+      "documentation": "ex.: 144, 298, 193",
+      "fieldName": "totalAmount",
+      "fieldType": "Long"
+    },
+    {
+      "documentation": "ex.: 'DINNER'",
+      "fieldName": "shift",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "ex.: 4",
+      "fieldName": "guestCount",
+      "fieldType": "Integer"
+    },
+    {
+      "documentation": "ex.: '2025-02-10T18:16:09.867311'",
+      "fieldName": "arrivalDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "restaurantName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "restaurantId",
+      "fieldType": "String"
+    }
+  ],
+  "name": "RestorationReservation",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "cancelled",
+      "relationshipName": "cancelled",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "expenses",
+      "relationshipName": "expenses",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "metadata",
+      "relationshipName": "metadata",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "oneCustomer",
+      "otherEntityRelationshipName": "restorationReservations",
+      "relationshipName": "oneCustomer",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
