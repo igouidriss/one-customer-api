@@ -1,86 +1,121 @@
 package com.sbm.rcu.web.rest;
 
-import com.sbm.rcu.domain.OneCustomer;
-import com.sbm.rcu.repository.OneCustomerRepository;
-import com.sbm.rcu.service.OneCustomerService;
-import com.sbm.rcu.service.dto.OneCustomerDTO;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
 import java.util.List;
+import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import tech.jhipster.web.util.PaginationUtil;
 
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.OneCustomer}.
  */
 @RestController
-@RequestMapping("/api/one-customers")
+@RequestMapping("/api")
 public class OneCustomerResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(OneCustomerResource.class);
 
-    private static final String ENTITY_NAME = "oneCustomer";
-
     private final MongoTemplate mongoTemplate;
+    private final ObjectMapper objectMapper; // Jackson
 
-    @Value("${jhipster.clientApp.name}")
-    private String applicationName;
-
-    private final OneCustomerService oneCustomerService;
-
-    private final OneCustomerRepository oneCustomerRepository;
-
-    public OneCustomerResource(
-        MongoTemplate mongoTemplate,
-        OneCustomerService oneCustomerService,
-        OneCustomerRepository oneCustomerRepository
-    ) {
+    @Autowired
+    public OneCustomerResource(MongoTemplate mongoTemplate, ObjectMapper objectMapper) {
         this.mongoTemplate = mongoTemplate;
-        this.oneCustomerService = oneCustomerService;
-        this.oneCustomerRepository = oneCustomerRepository;
+        this.objectMapper = objectMapper;
     }
 
-    //    @GetMapping("")
-    public ResponseEntity<List<OneCustomerDTO>> getAllOneCustomers(@org.springdoc.core.annotations.ParameterObject Pageable pageable) {
-        LOG.debug("REST request to get a page of OneCustomers");
-        Page<OneCustomerDTO> page = oneCustomerService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
-    }
-
-    @GetMapping("/advanced-search")
-    public List<OneCustomer> advancedSearch(
-        @RequestParam(required = false) String name,
+    /**
+     * Recherche avancée multi-critères :
+     * - nom : lastName ou firstName dans golden_record.payload
+     * - birthDate dans golden_record.payload
+     * - phone dans golden_record.payload.phones[].number
+     * - email dans golden_record.payload.emails[].value
+     * - isVip dans golden_record.payload
+     * - hotelName dans hotel[].info.hotel.name
+     * - restaurantName dans restauration[].info.restaurant.name
+     * <p>
+     * Les critères sont ignorés s'ils sont null ou vides.
+     */
+    @GetMapping("/one-customers/search-advanced")
+    public List<Document> advancedSearch(
+        @RequestParam(required = false) String lastName,
+        @RequestParam(required = false) String firstName,
+        @RequestParam(required = false) String birthDate,
+        @RequestParam(required = false) String phone,
         @RequestParam(required = false) String email,
-        @RequestParam(required = false) String city
+        @RequestParam(required = false) Boolean isVip,
+        @RequestParam(required = false) String hotel,
+        @RequestParam(required = false) String restaurant
     ) {
-        Criteria criteria = new Criteria();
+        LOG.debug("REST request to do an advanced search on OneCustomer");
+
+        // On va accumuler nos critères dans une liste
         List<Criteria> subCriteria = new ArrayList<>();
 
-        if (name != null) {
-            subCriteria.add(Criteria.where("firstName").regex(name, "i"));
+        // lastName -> golden_record.payload.lastName
+        if (lastName != null && !lastName.isEmpty()) {
+            subCriteria.add(Criteria.where("golden_record.payload.lastName").regex(lastName, "i")); // recherche partielle insensible à la casse
         }
-        if (email != null) {
-            subCriteria.add(Criteria.where("email").regex(email, "i"));
+
+        // firstName -> golden_record.payload.firstName
+        if (firstName != null && !firstName.isEmpty()) {
+            subCriteria.add(Criteria.where("golden_record.payload.firstName").regex(firstName, "i"));
         }
-        if (city != null) {
-            subCriteria.add(Criteria.where("address.city").regex(city, "i"));
+
+        // birthDate -> golden_record.payload.birthDate
+        // Ici, on peut décider de faire un match exact (==) ou partiel.
+        // Si c'est un champ date stocké sous forme String, .regex(...) est possible,
+        // sinon on fait un .is(...) si on stocke vraiment un type Date dans Mongo
+        if (birthDate != null && !birthDate.isEmpty()) {
+            subCriteria.add(Criteria.where("golden_record.payload.birthDate").is(birthDate));
         }
+
+        // phone -> golden_record.payload.phones[].number
+        // Pour chercher dans un tableau : on peut faire un .elemMatch ou direct .regex sur le champ
+        if (phone != null && !phone.isEmpty()) {
+            // On veut matcher n'importe quel phone "number" du tableau
+            subCriteria.add(Criteria.where("golden_record.payload.phones").elemMatch(Criteria.where("number").regex(phone, "i")));
+        }
+
+        // email -> golden_record.payload.emails[].value
+        if (email != null && !email.isEmpty()) {
+            subCriteria.add(Criteria.where("golden_record.payload.emails").elemMatch(Criteria.where("value").regex(email, "i")));
+        }
+
+        // isVip -> golden_record.payload.isVip (boolean)
+        if (isVip != null) {
+            subCriteria.add(Criteria.where("golden_record.payload.isVip").is(isVip));
+        }
+
+        // hotelName -> hotel[].info.hotel.name
+        if (hotel != null && !hotel.isEmpty()) {
+            subCriteria.add(Criteria.where("hotel").elemMatch(Criteria.where("info.hotel.name").regex(hotel, "i")));
+        }
+
+        // restaurantName -> restauration[].info.restaurant.name
+        if (restaurant != null && !restaurant.isEmpty()) {
+            subCriteria.add(Criteria.where("restauration").elemMatch(Criteria.where("info.restaurant.name").regex(restaurant, "i")));
+        }
+
+        // Construction du Criteria global
+        Criteria criteria = new Criteria();
         if (!subCriteria.isEmpty()) {
+            // On combine tous les sous-critères par AND
             criteria = new Criteria().andOperator(subCriteria.toArray(new Criteria[0]));
         }
 
+        // Confection de la Query
         Query query = new Query(criteria);
-        return mongoTemplate.find(query, OneCustomer.class);
+
+        // Exécution de la requête
+        List<Document> results = mongoTemplate.find(query, Document.class, "exposed_api_customer_360");
+
+        return results;
     }
 }
