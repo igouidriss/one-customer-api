@@ -2,6 +2,7 @@ package com.sbm.rcu.web.rest;
 
 import com.sbm.rcu.service.UserService;
 import com.sbm.rcu.service.dto.UserDTO;
+import io.swagger.v3.oas.annotations.Hidden;
 import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.PaginationUtil;
 
+@Hidden
 @RestController
 @RequestMapping("/api")
 public class PublicUserResource {

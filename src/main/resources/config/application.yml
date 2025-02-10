@@ -179,8 +179,8 @@ jhipster:
   api-docs:
     default-include-pattern: /api/**
     management-include-pattern: /management/**
-    title: RCU Application API
-    description: RCU Application API documentation
+    title: OneCustomer SBM API
+    description: OneCustomer SBM API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:

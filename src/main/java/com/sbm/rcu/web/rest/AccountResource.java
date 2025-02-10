@@ -10,6 +10,7 @@ import com.sbm.rcu.service.dto.PasswordChangeDTO;
 import com.sbm.rcu.web.rest.errors.*;
 import com.sbm.rcu.web.rest.vm.KeyAndPasswordVM;
 import com.sbm.rcu.web.rest.vm.ManagedUserVM;
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.validation.Valid;
 import java.util.*;
 import org.apache.commons.lang3.StringUtils;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * REST controller for managing the current user's account.
  */
+@Hidden
 @RestController
 @RequestMapping("/api")
 public class AccountResource {

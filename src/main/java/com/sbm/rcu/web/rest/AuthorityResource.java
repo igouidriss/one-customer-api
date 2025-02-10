@@ -3,6 +3,7 @@ package com.sbm.rcu.web.rest;
 import com.sbm.rcu.domain.Authority;
 import com.sbm.rcu.repository.AuthorityRepository;
 import com.sbm.rcu.web.rest.errors.BadRequestAlertException;
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -20,6 +21,7 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.sbm.rcu.domain.Authority}.
  */
+@Hidden
 @RestController
 @RequestMapping("/api/authorities")
 public class AuthorityResource {

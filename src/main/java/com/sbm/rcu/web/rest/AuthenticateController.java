@@ -5,6 +5,7 @@ import static com.sbm.rcu.security.SecurityUtils.JWT_ALGORITHM;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sbm.rcu.web.rest.vm.LoginVM;
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.validation.Valid;
 import java.security.Principal;
 import java.time.Instant;
@@ -31,6 +32,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Controller to authenticate users.
  */
+@Hidden
 @RestController
 @RequestMapping("/api")
 public class AuthenticateController {

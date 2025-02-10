@@ -10,6 +10,7 @@ import com.sbm.rcu.service.dto.AdminUserDTO;
 import com.sbm.rcu.web.rest.errors.BadRequestAlertException;
 import com.sbm.rcu.web.rest.errors.EmailAlreadyUsedException;
 import com.sbm.rcu.web.rest.errors.LoginAlreadyUsedException;
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import java.net.URI;
@@ -55,6 +56,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * <p>
  * Another option would be to have a specific JPA entity graph to handle this case.
  */
+@Hidden
 @RestController
 @RequestMapping("/api/admin")
 public class UserResource {

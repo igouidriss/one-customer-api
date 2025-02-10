@@ -19,15 +19,15 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/api")
-public class OneCustomerResource {
+public class OneCustomerAPI {
 
-    private static final Logger LOG = LoggerFactory.getLogger(OneCustomerResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(OneCustomerAPI.class);
 
     private final MongoTemplate mongoTemplate;
     private final ObjectMapper objectMapper; // Jackson
 
     @Autowired
-    public OneCustomerResource(MongoTemplate mongoTemplate, ObjectMapper objectMapper) {
+    public OneCustomerAPI(MongoTemplate mongoTemplate, ObjectMapper objectMapper) {
         this.mongoTemplate = mongoTemplate;
         this.objectMapper = objectMapper;
     }

@@ -26,12 +26,12 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 /**
- * Integration tests for the {@link OneCustomerResource} REST controller.
+ * Integration tests for the {@link OneCustomerAPI} REST controller.
  */
 @IntegrationTest
 @AutoConfigureMockMvc
 @WithMockUser
-class OneCustomerResourceIT {
+class OneCustomerAPIIT {
 
     private static final String DEFAULT_DOMAINE = "AAAAAAAAAA";
     private static final String UPDATED_DOMAINE = "BBBBBBBBBB";
