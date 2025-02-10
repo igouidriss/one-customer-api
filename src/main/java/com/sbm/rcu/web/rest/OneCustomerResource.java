@@ -1,6 +1,8 @@
 package com.sbm.rcu.web.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sbm.rcu.domain.ExposedOneCustomer;
+import com.sbm.rcu.service.mapper.ExposedOneCustomerMapper;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
@@ -43,7 +45,7 @@ public class OneCustomerResource {
      * Les critères sont ignorés s'ils sont null ou vides.
      */
     @GetMapping("/one-customers/search-advanced")
-    public List<Document> advancedSearch(
+    public List<ExposedOneCustomer> advancedSearch(
         @RequestParam(required = false) String lastName,
         @RequestParam(required = false) String firstName,
         @RequestParam(required = false) String birthDate,
@@ -113,8 +115,13 @@ public class OneCustomerResource {
         // Confection de la Query
         Query query = new Query(criteria);
 
-        // Exécution de la requête
-        List<Document> results = mongoTemplate.find(query, Document.class, "exposed_api_customer_360");
+        List<Document> documents = mongoTemplate.find(query, Document.class, "exposed_api_customer_360");
+
+        List<ExposedOneCustomer> results = new ArrayList<>();
+        for (Document doc : documents) {
+            ExposedOneCustomer mapped = ExposedOneCustomerMapper.fromDocument(doc);
+            results.add(mapped);
+        }
 
         return results;
     }
