@@ -88,15 +88,15 @@ public class ExposedOneCustomerMapper {
                     if (hotelNested != null) {
                         he.setName(hotelNested.getString("name"));
                         // ... ou vous pouvez renommer ce champ si besoin
-                        ExposedOneCustomer.HotelNested hn = new ExposedOneCustomer.HotelNested();
+                        /*ExposedOneCustomer.HotelNested hn = new ExposedOneCustomer.HotelNested();
                         hn.setName(hotelNested.getString("name"));
                         hn.setId(hotelNested.getString("id"));
-                        he.setHotel(hn);
+                        he.setHotel(hn);*/
                     }
 
                     he.setDate(info.getString("date"));
                     he.setTotalAmount(safeDouble(info.get("totalAmount")));
-                    he.setClientId(info.getString("clientId"));
+                    //                    he.setClientId(info.getString("clientId"));
                     he.setLeaveDate(info.getString("leaveDate"));
                     he.setGuestCount(info.getInteger("guestCount"));
                     he.setArrivalDate(info.getString("arrivalDate"));

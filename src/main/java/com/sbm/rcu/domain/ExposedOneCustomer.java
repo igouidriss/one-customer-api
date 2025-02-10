@@ -240,9 +240,9 @@ public class ExposedOneCustomer {
         private String name; // ex: 'HERMITAGE'
         private String date; // ex: '2025-02-09'
         private Double totalAmount; // ex: 793
-        private String clientId; // ex: 'opera_client_130'
+        //        private String clientId; // ex: 'opera_client_130'
         private String leaveDate; // ex: '2025-02-12T18:36:28.998866'
-        private HotelNested hotel; // { name: 'HERMITAGE', id: '...' }
+        //        private HotelNested hotel; // { name: 'HERMITAGE', id: '...' }
         private Integer guestCount; // ex: 1
         private String arrivalDate; // ex: '2025-02-10T18:36:28.998831'
 
@@ -272,13 +272,13 @@ public class ExposedOneCustomer {
             this.totalAmount = totalAmount;
         }
 
-        public String getClientId() {
+        /*public String getClientId() {
             return clientId;
         }
 
         public void setClientId(String clientId) {
             this.clientId = clientId;
-        }
+        }*/
 
         public String getLeaveDate() {
             return leaveDate;
@@ -288,13 +288,13 @@ public class ExposedOneCustomer {
             this.leaveDate = leaveDate;
         }
 
-        public HotelNested getHotel() {
+        /*        public HotelNested getHotel() {
             return hotel;
         }
 
         public void setHotel(HotelNested hotel) {
             this.hotel = hotel;
-        }
+        }*/
 
         public Integer getGuestCount() {
             return guestCount;
