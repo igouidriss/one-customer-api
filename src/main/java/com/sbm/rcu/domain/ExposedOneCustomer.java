@@ -2,30 +2,18 @@ package com.sbm.rcu.domain;
 
 import java.util.List;
 
-/**
- * Un "exposé" minimal de votre document MongoDB, ne contenant que les champs métier
- * nécessaires pour la restitution JSON. Tous les champs hors scope (ex: metadata, _id...)
- * sont omis pour obtenir un JSON propre et réduit.
- */
 public class ExposedOneCustomer {
 
-    // --- Partie "payload" depuis golden_record.payload ---
-    private String lastName; // ex: "IGOULALENE"
-    private String firstName; // ex: "Robert"
-    private String birthDate; // ex: "1980-01-01"
-    private String lang; // ex: "IT"
+    private String lastName;
+    private String firstName;
+    private String birthDate;
+    private String lang;
     private List<Phone> phones;
     private List<Email> emails;
     private List<Address> addresses;
-    private Boolean isVip; // ex: true
-
-    // --- Partie "hotel" ---
+    private Boolean isVip;
     private List<HotelEntry> hotel;
-
-    // --- Partie "restauration" ---
     private List<RestaurationEntry> restauration;
-
-    // --- Getters / Setters ---
 
     public String getLastName() {
         return lastName;
@@ -107,13 +95,10 @@ public class ExposedOneCustomer {
         this.restauration = restauration;
     }
 
-    /**
-     * Sous-classe pour représenter un téléphone dans la partie "phones" du payload.
-     */
     public static class Phone {
 
-        private String type; // ex: "PRO" ou "HOME"
-        private String number; // ex: "+33-123-456"
+        private String type;
+        private String number;
 
         public String getType() {
             return type;
@@ -132,13 +117,10 @@ public class ExposedOneCustomer {
         }
     }
 
-    /**
-     * Sous-classe pour représenter un email dans la partie "emails" du payload.
-     */
     public static class Email {
 
-        private String type; // ex: "PRO" ou "HOME"
-        private String value; // ex: "john.doe@company.com"
+        private String type;
+        private String value;
 
         public String getType() {
             return type;
@@ -157,15 +139,12 @@ public class ExposedOneCustomer {
         }
     }
 
-    /**
-     * Sous-classe pour représenter une adresse dans la partie "addresses" du payload.
-     */
     public static class Address {
 
-        private String type; // ex: "HOME"
-        private String zipCode; // ex: "98000"
-        private String city; // ex: "Monaco"
-        private String country; // ex: "MC"
+        private String type;
+        private String zipCode;
+        private String city;
+        private String country;
         private String line1;
         private String line2;
         private String line3;
@@ -227,26 +206,15 @@ public class ExposedOneCustomer {
         }
     }
 
-    // ---------------------------------------------------------------
-    //                      HOTEL
-    // ---------------------------------------------------------------
-
-    /**
-     * Sous-classe pour chaque réservation “hotel”.
-     * Inclut le champ "cancelled" s'il existe, ainsi que l'objet interne "hotel".
-     */
     public static class HotelEntry {
 
-        private String name; // ex: 'HERMITAGE'
-        private String date; // ex: '2025-02-09'
-        private Double totalAmount; // ex: 793
-        //        private String clientId; // ex: 'opera_client_130'
-        private String leaveDate; // ex: '2025-02-12T18:36:28.998866'
-        //        private HotelNested hotel; // { name: 'HERMITAGE', id: '...' }
-        private Integer guestCount; // ex: 1
-        private String arrivalDate; // ex: '2025-02-10T18:36:28.998831'
-
-        private HotelCancelled cancelled; // { cancel_reason: '...', is_it_cancelled: true, ... }
+        private String name;
+        private String date;
+        private Double totalAmount;
+        private String leaveDate;
+        private Integer guestCount;
+        private String arrivalDate;
+        private HotelCancelled cancelled;
 
         public String getName() {
             return name;
@@ -272,14 +240,6 @@ public class ExposedOneCustomer {
             this.totalAmount = totalAmount;
         }
 
-        /*public String getClientId() {
-            return clientId;
-        }
-
-        public void setClientId(String clientId) {
-            this.clientId = clientId;
-        }*/
-
         public String getLeaveDate() {
             return leaveDate;
         }
@@ -287,14 +247,6 @@ public class ExposedOneCustomer {
         public void setLeaveDate(String leaveDate) {
             this.leaveDate = leaveDate;
         }
-
-        /*        public HotelNested getHotel() {
-            return hotel;
-        }
-
-        public void setHotel(HotelNested hotel) {
-            this.hotel = hotel;
-        }*/
 
         public Integer getGuestCount() {
             return guestCount;
@@ -321,39 +273,11 @@ public class ExposedOneCustomer {
         }
     }
 
-    /**
-     * Sous-classe pour représenter la portion "hotel" -> "info.hotel" (ex: { name, id }).
-     */
-    public static class HotelNested {
-
-        private String name;
-        private String id;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-    }
-
-    /**
-     * Sous-classe pour représenter l'objet "cancelled" dans la section hotel.
-     */
     public static class HotelCancelled {
 
-        private String cancel_reason; // ex: "Client request"
-        private boolean is_it_cancelled; // ex: true
-        private String cancel_date; // ex: "2025-02-09T18:37:13.334589"
+        private String cancel_reason;
+        private boolean is_it_cancelled;
+        private String cancel_date;
 
         public String getCancel_reason() {
             return cancel_reason;
@@ -380,23 +304,16 @@ public class ExposedOneCustomer {
         }
     }
 
-    // ---------------------------------------------------------------
-    //                      RESTAURATION
-    // ---------------------------------------------------------------
-
-    /**
-     * Sous-classe pour chaque réservation “restauration”.
-     */
     public static class RestaurationEntry {
 
-        private String name; // ex: 'COYA'
-        private String date; // ex: '2025-02-09'
-        private Double depositAmount; // ex: 12
-        private Double totalAmount; // ex: 244
-        private String clientId; // ex: 'seven_rooms_client_127'
-        private String shift; // ex: 'DINNER'
-        private Integer guestCount; // ex: 3
-        private String arrivalDate; // ex: '2025-02-10T18:36:16.902882'
+        private String name;
+        private String date;
+        private Double depositAmount;
+        private Double totalAmount;
+        private String clientId;
+        private String shift;
+        private Integer guestCount;
+        private String arrivalDate;
 
         public String getName() {
             return name;
