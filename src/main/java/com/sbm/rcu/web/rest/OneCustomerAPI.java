@@ -24,26 +24,12 @@ public class OneCustomerAPI {
     private static final Logger LOG = LoggerFactory.getLogger(OneCustomerAPI.class);
 
     private final MongoTemplate mongoTemplate;
-    private final ObjectMapper objectMapper; // Jackson
 
     @Autowired
-    public OneCustomerAPI(MongoTemplate mongoTemplate, ObjectMapper objectMapper) {
+    public OneCustomerAPI(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
-        this.objectMapper = objectMapper;
     }
 
-    /**
-     * Recherche avancée multi-critères :
-     * - nom : lastName ou firstName dans golden_record.payload
-     * - birthDate dans golden_record.payload
-     * - phone dans golden_record.payload.phones[].number
-     * - email dans golden_record.payload.emails[].value
-     * - isVip dans golden_record.payload
-     * - hotelName dans hotel[].info.hotel.name
-     * - restaurantName dans restauration[].info.restaurant.name
-     * <p>
-     * Les critères sont ignorés s'ils sont null ou vides.
-     */
     @GetMapping("/one-customers/search-advanced")
     public List<ExposedOneCustomer> advancedSearch(
         @RequestParam(required = false) String lastName,
