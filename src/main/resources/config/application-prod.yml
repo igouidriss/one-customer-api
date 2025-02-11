@@ -33,7 +33,7 @@ spring:
       enabled: false
   data:
     mongodb:
-      uri: mongodb://myuser:mypassword@mongo1:27017/RCU
+      uri: mongodb://myuser:mypassword@localhost:27017/RCU
   mail:
     host: localhost
     port: 25

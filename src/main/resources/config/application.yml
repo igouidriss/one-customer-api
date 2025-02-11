@@ -179,7 +179,7 @@ jhipster:
   api-docs:
     default-include-pattern: /api/**
     management-include-pattern: /management/**
-    title: OneCustomer SBM API
+    title: OneCustomer SBM API - Vue Unifiée
     description: OneCustomer SBM API documentation
     version: 0.0.1
     terms-of-service-url:
