@@ -10,10 +10,9 @@
         </div>
       </div>
     </div>
-
-    <!-- Image centrée sous le texte -->
-    <span class="hipster img-fluid rounded"></span>
   </div>
+
+  <span class="hipster img-fluid rounded"></span>
 </template>
 
 <script lang="ts" src="./home.component.ts"></script>

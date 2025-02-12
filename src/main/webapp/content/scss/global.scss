@@ -63,11 +63,11 @@ Main page styles
 ========================================================================== */
 
 .hipster.img-fluid {
-  display: block; /* Assure que l'image prend toute la largeur disponible */
-  margin: 20px auto; /* Centre l'image horizontalement et ajoute un espacement */
-  width: 447px;
-  height: 597px;
-  background: url('/content/images/RCU.svg') no-repeat center center;
+  display: block;
+  margin-top: -60px; /* Monte l'image */
+  width: 1047px;
+  height: 1197px;
+  background: url('/content/images/Data-Process-RCU.svg') no-repeat center center;
   background-size: contain;
 }
 
