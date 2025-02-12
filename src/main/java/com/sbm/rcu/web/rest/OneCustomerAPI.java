@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  * REST controller for managing {@link com.sbm.rcu.domain.OneCustomer}.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/one-customer")
 public class OneCustomerAPI {
 
     private static final Logger LOG = LoggerFactory.getLogger(OneCustomerAPI.class);
@@ -30,7 +30,7 @@ public class OneCustomerAPI {
         this.mongoTemplate = mongoTemplate;
     }
 
-    @GetMapping("/one-customers/search-advanced")
+    @GetMapping("/search-advanced")
     public List<ExposedOneCustomer> advancedSearch(
         @RequestParam(required = false) String lastName,
         @RequestParam(required = false) String firstName,
